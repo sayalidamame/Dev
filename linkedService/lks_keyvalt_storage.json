@@ -1,0 +1,10 @@
+{
+	"name": "lks_keyvalt_storage",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://keyvaultadfsayali.vault.azure.net/"
+		}
+	}
+}
