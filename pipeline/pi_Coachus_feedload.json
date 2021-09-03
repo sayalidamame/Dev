@@ -109,7 +109,7 @@
 							},
 							{
 								"source": {
-									"name": "Description_Long",
+									"name": "Description",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -591,7 +591,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "AzureSqlTable1",
+						"referenceName": "ds_sql_coachusdb",
 						"type": "DatasetReference"
 					}
 				]

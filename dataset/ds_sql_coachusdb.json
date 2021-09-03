@@ -1,5 +1,5 @@
 {
-	"name": "AzureSqlTable1",
+	"name": "ds_sql_coachusdb",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "lkd_Sql_database",
