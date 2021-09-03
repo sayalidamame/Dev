@@ -1,0 +1,197 @@
+{
+	"name": "AzureSqlTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lkd_Sql_database",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Id",
+				"type": "varchar"
+			},
+			{
+				"name": "Title",
+				"type": "varchar"
+			},
+			{
+				"name": "Link",
+				"type": "varchar"
+			},
+			{
+				"name": "ImageLink",
+				"type": "varchar"
+			},
+			{
+				"name": "Price",
+				"type": "varchar"
+			},
+			{
+				"name": "Availability",
+				"type": "varchar"
+			},
+			{
+				"name": "Description",
+				"type": "varchar"
+			},
+			{
+				"name": "Description_Long",
+				"type": "varchar"
+			},
+			{
+				"name": "Brand",
+				"type": "varchar"
+			},
+			{
+				"name": "Color",
+				"type": "varchar"
+			},
+			{
+				"name": "Refinement Color",
+				"type": "varchar"
+			},
+			{
+				"name": "Size",
+				"type": "varchar"
+			},
+			{
+				"name": "Dimension",
+				"type": "varchar"
+			},
+			{
+				"name": "Gender",
+				"type": "varchar"
+			},
+			{
+				"name": "Sale_Price",
+				"type": "varchar"
+			},
+			{
+				"name": "GTIN",
+				"type": "varchar"
+			},
+			{
+				"name": "MPN",
+				"type": "varchar"
+			},
+			{
+				"name": "Material",
+				"type": "varchar"
+			},
+			{
+				"name": "Refinement Material",
+				"type": "varchar"
+			},
+			{
+				"name": "LiningMaterial",
+				"type": "varchar"
+			},
+			{
+				"name": "InsoleMaterial",
+				"type": "varchar"
+			},
+			{
+				"name": "OutsoleMaterial",
+				"type": "varchar"
+			},
+			{
+				"name": "HardwareMaterial",
+				"type": "varchar"
+			},
+			{
+				"name": "ItemGroupId",
+				"type": "varchar"
+			},
+			{
+				"name": "AdditionalImageLinks",
+				"type": "varchar"
+			},
+			{
+				"name": "Breadcrumbs",
+				"type": "varchar"
+			},
+			{
+				"name": "isOutlet",
+				"type": "varchar"
+			},
+			{
+				"name": "MerchandiseDivision",
+				"type": "varchar"
+			},
+			{
+				"name": "MerchandiseClass",
+				"type": "varchar"
+			},
+			{
+				"name": "OnlineFrom",
+				"type": "varchar"
+			},
+			{
+				"name": "DefaultVariant",
+				"type": "varchar"
+			},
+			{
+				"name": "AdditionalCategories",
+				"type": "varchar"
+			},
+			{
+				"name": "Silhouette",
+				"type": "varchar"
+			},
+			{
+				"name": "IsOnClearanceShop",
+				"type": "varchar"
+			},
+			{
+				"name": "IsOnSale",
+				"type": "varchar"
+			},
+			{
+				"name": "StyleGroup",
+				"type": "varchar"
+			},
+			{
+				"name": "ProductType",
+				"type": "varchar"
+			},
+			{
+				"name": "ProductSetItems",
+				"type": "varchar"
+			},
+			{
+				"name": "Rating",
+				"type": "varchar"
+			},
+			{
+				"name": "ReviewCount",
+				"type": "varchar"
+			},
+			{
+				"name": "IsMemberExclusive",
+				"type": "varchar"
+			},
+			{
+				"name": "BagSize",
+				"type": "varchar"
+			},
+			{
+				"name": "IsEmployeeSale",
+				"type": "varchar"
+			},
+			{
+				"name": "IsNewArrival",
+				"type": "varchar"
+			},
+			{
+				"name": "VariationId ",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Data_Feed_CoachusC01_Items"
+		}
+	}
+}
