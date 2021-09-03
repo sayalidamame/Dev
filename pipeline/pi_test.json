@@ -3,13 +3,598 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Wait1",
-				"type": "Wait",
+				"name": "Copy data from coachus to datafeed",
+				"type": "Copy",
 				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
 				"userProperties": [],
 				"typeProperties": {
-					"waitTimeInSeconds": 1
-				}
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "truncate table Data_Feed_CoachusC01_Items",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Id",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Title",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Title",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Link",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Link",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Image Link",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ImageLink",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Price",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Price",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Availability",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Availability",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Description_Long",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Description",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Description_Long",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Description_Long",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Brand",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Brand",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Color",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Color",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Refinement Color",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Refinement Color",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Size",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Size",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Dimension",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Dimension",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Gender",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Gender",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Sale_Price",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Sale_Price",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "GTIN",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "GTIN",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "MPN",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "MPN",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Material",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Material",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Refinement Material",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Refinement Material",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Lining Material",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "LiningMaterial",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Insole Material",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "InsoleMaterial",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Outsole Material",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "OutsoleMaterial",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Hardware Material",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "HardwareMaterial",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Item Group Id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ItemGroupId",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Additional Image Links",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "AdditionalImageLinks",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Breadcrumbs",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Breadcrumbs",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "isOutlet",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "isOutlet",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "MerchandiseDivision",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "MerchandiseDivision",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "MerchandiseClass",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "MerchandiseClass",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "OnlineFrom",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "OnlineFrom",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "DefaultVariant",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DefaultVariant",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "AdditionalCategories",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "AdditionalCategories",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Silhouette",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Silhouette",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "IsOnClearanceShop",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IsOnClearanceShop",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "IsOnSale",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IsOnSale",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "StyleGroup",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "StyleGroup",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ProductType",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ProductType",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ProductSetItems",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ProductSetItems",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Rating",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Rating",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ReviewCount",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ReviewCount",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "IsMemberExclusive",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IsMemberExclusive",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BagSize",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "BagSize",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "IsEmployeeSale",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IsEmployeeSale",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "IsNewArrival",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IsNewArrival",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "VariationId",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "VariationId ",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ds_coachfile",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlTable1",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": []
