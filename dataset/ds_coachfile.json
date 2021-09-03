@@ -9,7 +9,10 @@
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation"
+				"type": "AzureBlobStorageLocation",
+				"fileName": "coach_us_retail_certona_v2.csv",
+				"folderPath": "Coach",
+				"container": "users"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
