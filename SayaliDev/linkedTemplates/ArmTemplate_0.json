@@ -11,9 +11,17 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'lkd_Sql_database'"
 		},
-		"lks_blob_coach_connectionString": {
+		"lkd_blob_log_connectionString": {
 			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'lks_blob_coach'"
+			"metadata": "Secure string for 'connectionString' of 'lkd_blob_log'"
+		},
+		"lks_keyvalt_storage_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://keyvaultadfsayali.vault.azure.net/"
+		},
+		"lks_blob_coach_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "screatestorageconn"
 		}
 	},
 	"variables": {
@@ -34,6 +42,234 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/lkd_blob_log')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('lkd_blob_log_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/lks_keyvalt_storage')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureKeyVault",
+				"typeProperties": {
+					"baseUrl": "[parameters('lks_keyvalt_storage_properties_typeProperties_baseUrl')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ds_sql_coachusdb')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "lkd_Sql_database",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Id",
+						"type": "varchar"
+					},
+					{
+						"name": "Title",
+						"type": "varchar"
+					},
+					{
+						"name": "Link",
+						"type": "varchar"
+					},
+					{
+						"name": "ImageLink",
+						"type": "varchar"
+					},
+					{
+						"name": "Price",
+						"type": "varchar"
+					},
+					{
+						"name": "Availability",
+						"type": "varchar"
+					},
+					{
+						"name": "Description",
+						"type": "varchar"
+					},
+					{
+						"name": "Description_Long",
+						"type": "varchar"
+					},
+					{
+						"name": "Brand",
+						"type": "varchar"
+					},
+					{
+						"name": "Color",
+						"type": "varchar"
+					},
+					{
+						"name": "Refinement Color",
+						"type": "varchar"
+					},
+					{
+						"name": "Size",
+						"type": "varchar"
+					},
+					{
+						"name": "Dimension",
+						"type": "varchar"
+					},
+					{
+						"name": "Gender",
+						"type": "varchar"
+					},
+					{
+						"name": "Sale_Price",
+						"type": "varchar"
+					},
+					{
+						"name": "GTIN",
+						"type": "varchar"
+					},
+					{
+						"name": "MPN",
+						"type": "varchar"
+					},
+					{
+						"name": "Material",
+						"type": "varchar"
+					},
+					{
+						"name": "Refinement Material",
+						"type": "varchar"
+					},
+					{
+						"name": "LiningMaterial",
+						"type": "varchar"
+					},
+					{
+						"name": "InsoleMaterial",
+						"type": "varchar"
+					},
+					{
+						"name": "OutsoleMaterial",
+						"type": "varchar"
+					},
+					{
+						"name": "HardwareMaterial",
+						"type": "varchar"
+					},
+					{
+						"name": "ItemGroupId",
+						"type": "varchar"
+					},
+					{
+						"name": "AdditionalImageLinks",
+						"type": "varchar"
+					},
+					{
+						"name": "Breadcrumbs",
+						"type": "varchar"
+					},
+					{
+						"name": "isOutlet",
+						"type": "varchar"
+					},
+					{
+						"name": "MerchandiseDivision",
+						"type": "varchar"
+					},
+					{
+						"name": "MerchandiseClass",
+						"type": "varchar"
+					},
+					{
+						"name": "OnlineFrom",
+						"type": "varchar"
+					},
+					{
+						"name": "DefaultVariant",
+						"type": "varchar"
+					},
+					{
+						"name": "AdditionalCategories",
+						"type": "varchar"
+					},
+					{
+						"name": "Silhouette",
+						"type": "varchar"
+					},
+					{
+						"name": "IsOnClearanceShop",
+						"type": "varchar"
+					},
+					{
+						"name": "IsOnSale",
+						"type": "varchar"
+					},
+					{
+						"name": "StyleGroup",
+						"type": "varchar"
+					},
+					{
+						"name": "ProductType",
+						"type": "varchar"
+					},
+					{
+						"name": "ProductSetItems",
+						"type": "varchar"
+					},
+					{
+						"name": "Rating",
+						"type": "varchar"
+					},
+					{
+						"name": "ReviewCount",
+						"type": "varchar"
+					},
+					{
+						"name": "IsMemberExclusive",
+						"type": "varchar"
+					},
+					{
+						"name": "BagSize",
+						"type": "varchar"
+					},
+					{
+						"name": "IsEmployeeSale",
+						"type": "varchar"
+					},
+					{
+						"name": "IsNewArrival",
+						"type": "varchar"
+					},
+					{
+						"name": "VariationId ",
+						"type": "varchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "Data_Feed_CoachusC01_Items"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/lkd_Sql_database')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/lks_blob_coach')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -41,10 +277,20 @@
 				"annotations": [],
 				"type": "AzureBlobStorage",
 				"typeProperties": {
-					"connectionString": "[parameters('lks_blob_coach_connectionString')]"
+					"connectionString": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "lks_keyvalt_storage",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "[parameters('lks_blob_coach_properties_typeProperties_connectionString_secretName')]",
+						"secretVersion": ""
+					}
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/lks_keyvalt_storage')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ds_coachfile')]",
@@ -257,208 +503,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ds_sql_coachusdb')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lkd_Sql_database",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "Id",
-						"type": "varchar"
-					},
-					{
-						"name": "Title",
-						"type": "varchar"
-					},
-					{
-						"name": "Link",
-						"type": "varchar"
-					},
-					{
-						"name": "ImageLink",
-						"type": "varchar"
-					},
-					{
-						"name": "Price",
-						"type": "varchar"
-					},
-					{
-						"name": "Availability",
-						"type": "varchar"
-					},
-					{
-						"name": "Description",
-						"type": "varchar"
-					},
-					{
-						"name": "Description_Long",
-						"type": "varchar"
-					},
-					{
-						"name": "Brand",
-						"type": "varchar"
-					},
-					{
-						"name": "Color",
-						"type": "varchar"
-					},
-					{
-						"name": "Refinement Color",
-						"type": "varchar"
-					},
-					{
-						"name": "Size",
-						"type": "varchar"
-					},
-					{
-						"name": "Dimension",
-						"type": "varchar"
-					},
-					{
-						"name": "Gender",
-						"type": "varchar"
-					},
-					{
-						"name": "Sale_Price",
-						"type": "varchar"
-					},
-					{
-						"name": "GTIN",
-						"type": "varchar"
-					},
-					{
-						"name": "MPN",
-						"type": "varchar"
-					},
-					{
-						"name": "Material",
-						"type": "varchar"
-					},
-					{
-						"name": "Refinement Material",
-						"type": "varchar"
-					},
-					{
-						"name": "LiningMaterial",
-						"type": "varchar"
-					},
-					{
-						"name": "InsoleMaterial",
-						"type": "varchar"
-					},
-					{
-						"name": "OutsoleMaterial",
-						"type": "varchar"
-					},
-					{
-						"name": "HardwareMaterial",
-						"type": "varchar"
-					},
-					{
-						"name": "ItemGroupId",
-						"type": "varchar"
-					},
-					{
-						"name": "AdditionalImageLinks",
-						"type": "varchar"
-					},
-					{
-						"name": "Breadcrumbs",
-						"type": "varchar"
-					},
-					{
-						"name": "isOutlet",
-						"type": "varchar"
-					},
-					{
-						"name": "MerchandiseDivision",
-						"type": "varchar"
-					},
-					{
-						"name": "MerchandiseClass",
-						"type": "varchar"
-					},
-					{
-						"name": "OnlineFrom",
-						"type": "varchar"
-					},
-					{
-						"name": "DefaultVariant",
-						"type": "varchar"
-					},
-					{
-						"name": "AdditionalCategories",
-						"type": "varchar"
-					},
-					{
-						"name": "Silhouette",
-						"type": "varchar"
-					},
-					{
-						"name": "IsOnClearanceShop",
-						"type": "varchar"
-					},
-					{
-						"name": "IsOnSale",
-						"type": "varchar"
-					},
-					{
-						"name": "StyleGroup",
-						"type": "varchar"
-					},
-					{
-						"name": "ProductType",
-						"type": "varchar"
-					},
-					{
-						"name": "ProductSetItems",
-						"type": "varchar"
-					},
-					{
-						"name": "Rating",
-						"type": "varchar"
-					},
-					{
-						"name": "ReviewCount",
-						"type": "varchar"
-					},
-					{
-						"name": "IsMemberExclusive",
-						"type": "varchar"
-					},
-					{
-						"name": "BagSize",
-						"type": "varchar"
-					},
-					{
-						"name": "IsEmployeeSale",
-						"type": "varchar"
-					},
-					{
-						"name": "IsNewArrival",
-						"type": "varchar"
-					},
-					{
-						"name": "VariationId ",
-						"type": "varchar"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "Data_Feed_CoachusC01_Items"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lkd_Sql_database')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/pi_Coachus_feedload')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -494,6 +538,19 @@
 								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
+							"logSettings": {
+								"enableCopyActivityLog": true,
+								"copyActivityLogSettings": {
+									"logLevel": "Warning",
+									"enableReliableLogging": false
+								},
+								"logLocationSettings": {
+									"linkedServiceName": {
+										"referenceName": "lkd_blob_log",
+										"type": "LinkedServiceReference"
+									}
+								}
+							},
 							"translator": {
 								"type": "TabularTranslator",
 								"mappings": [
@@ -1065,7 +1122,38 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ds_coachfile')]",
-				"[concat(variables('factoryId'), '/datasets/ds_sql_coachusdb')]"
+				"[concat(variables('factoryId'), '/datasets/ds_sql_coachusdb')]",
+				"[concat(variables('factoryId'), '/linkedServices/lkd_blob_log')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger1')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pi_Coachus_feedload",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Hour",
+						"interval": 6,
+						"startTime": "2021-09-03T17:12:00Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pi_Coachus_feedload')]"
 			]
 		}
 	]

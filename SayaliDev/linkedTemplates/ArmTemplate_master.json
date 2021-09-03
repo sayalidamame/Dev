@@ -11,9 +11,17 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'lkd_Sql_database'"
 		},
-		"lks_blob_coach_connectionString": {
+		"lkd_blob_log_connectionString": {
 			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'lks_blob_coach'"
+			"metadata": "Secure string for 'connectionString' of 'lkd_blob_log'"
+		},
+		"lks_blob_coach_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "screatestorageconn"
+		},
+		"lks_keyvalt_storage_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://keyvaultadfsayali.vault.azure.net/"
 		},
 		"containerUri": {
 			"type": "string",
@@ -45,8 +53,14 @@
 					"lkd_Sql_database_connectionString": {
 						"value": "[parameters('lkd_Sql_database_connectionString')]"
 					},
-					"lks_blob_coach_connectionString": {
-						"value": "[parameters('lks_blob_coach_connectionString')]"
+					"lkd_blob_log_connectionString": {
+						"value": "[parameters('lkd_blob_log_connectionString')]"
+					},
+					"lks_keyvalt_storage_properties_typeProperties_baseUrl": {
+						"value": "[parameters('lks_keyvalt_storage_properties_typeProperties_baseUrl')]"
+					},
+					"lks_blob_coach_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('lks_blob_coach_properties_typeProperties_connectionString_secretName')]"
 					}
 				}
 			},

@@ -8,8 +8,14 @@
 		"lkd_Sql_database_connectionString": {
 			"value": ""
 		},
-		"lks_blob_coach_connectionString": {
+		"lkd_blob_log_connectionString": {
 			"value": ""
+		},
+		"lks_blob_coach_properties_typeProperties_connectionString_secretName": {
+			"value": "screatestorageconn"
+		},
+		"lks_keyvalt_storage_properties_typeProperties_baseUrl": {
+			"value": "https://keyvaultadfsayali.vault.azure.net/"
 		},
 		"containerUri": {
 			"value": ""
