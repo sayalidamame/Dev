@@ -4,6 +4,12 @@
 	"parameters": {
 		"factoryName": {
 			"value": "SayaliDev"
+		},
+		"lkd_Sql_database_connectionString": {
+			"value": ""
+		},
+		"lks_blob_coach_connectionString": {
+			"value": ""
 		}
 	}
 }

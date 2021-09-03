@@ -7,6 +7,14 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "SayaliDev"
 		},
+		"lkd_Sql_database_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'lkd_Sql_database'"
+		},
+		"lks_blob_coach_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'lks_blob_coach'"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -33,6 +41,12 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"lkd_Sql_database_connectionString": {
+						"value": "[parameters('lkd_Sql_database_connectionString')]"
+					},
+					"lks_blob_coach_connectionString": {
+						"value": "[parameters('lks_blob_coach_connectionString')]"
 					}
 				}
 			},
