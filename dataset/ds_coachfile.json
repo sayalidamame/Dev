@@ -16,8 +16,190 @@
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
+			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": []
+		"schema": [
+			{
+				"name": "Id",
+				"type": "String"
+			},
+			{
+				"name": "Title",
+				"type": "String"
+			},
+			{
+				"name": "Link",
+				"type": "String"
+			},
+			{
+				"name": "Image Link",
+				"type": "String"
+			},
+			{
+				"name": "Price",
+				"type": "String"
+			},
+			{
+				"name": "Availability",
+				"type": "String"
+			},
+			{
+				"name": "Description",
+				"type": "String"
+			},
+			{
+				"name": "Description_Long",
+				"type": "String"
+			},
+			{
+				"name": "Brand",
+				"type": "String"
+			},
+			{
+				"name": "Color",
+				"type": "String"
+			},
+			{
+				"name": "Refinement Color",
+				"type": "String"
+			},
+			{
+				"name": "Size",
+				"type": "String"
+			},
+			{
+				"name": "Dimension",
+				"type": "String"
+			},
+			{
+				"name": "Gender",
+				"type": "String"
+			},
+			{
+				"name": "Sale_Price",
+				"type": "String"
+			},
+			{
+				"name": "GTIN",
+				"type": "String"
+			},
+			{
+				"name": "MPN",
+				"type": "String"
+			},
+			{
+				"name": "Material",
+				"type": "String"
+			},
+			{
+				"name": "Refinement Material",
+				"type": "String"
+			},
+			{
+				"name": "Lining Material",
+				"type": "String"
+			},
+			{
+				"name": "Insole Material",
+				"type": "String"
+			},
+			{
+				"name": "Outsole Material",
+				"type": "String"
+			},
+			{
+				"name": "Hardware Material",
+				"type": "String"
+			},
+			{
+				"name": "Item Group Id",
+				"type": "String"
+			},
+			{
+				"name": "Additional Image Links",
+				"type": "String"
+			},
+			{
+				"name": "Breadcrumbs",
+				"type": "String"
+			},
+			{
+				"name": "isOutlet",
+				"type": "String"
+			},
+			{
+				"name": "MerchandiseDivision",
+				"type": "String"
+			},
+			{
+				"name": "MerchandiseClass",
+				"type": "String"
+			},
+			{
+				"name": "OnlineFrom",
+				"type": "String"
+			},
+			{
+				"name": "DefaultVariant",
+				"type": "String"
+			},
+			{
+				"name": "AdditionalCategories",
+				"type": "String"
+			},
+			{
+				"name": "Silhouette",
+				"type": "String"
+			},
+			{
+				"name": "IsOnClearanceShop",
+				"type": "String"
+			},
+			{
+				"name": "IsOnSale",
+				"type": "String"
+			},
+			{
+				"name": "StyleGroup",
+				"type": "String"
+			},
+			{
+				"name": "ProductType",
+				"type": "String"
+			},
+			{
+				"name": "ProductSetItems",
+				"type": "String"
+			},
+			{
+				"name": "Rating",
+				"type": "String"
+			},
+			{
+				"name": "ReviewCount",
+				"type": "String"
+			},
+			{
+				"name": "IsMemberExclusive",
+				"type": "String"
+			},
+			{
+				"name": "BagSize",
+				"type": "String"
+			},
+			{
+				"name": "IsEmployeeSale",
+				"type": "String"
+			},
+			{
+				"name": "IsNewArrival",
+				"type": "String"
+			},
+			{
+				"name": "VariationId",
+				"type": "String"
+			}
+		]
 	}
 }
