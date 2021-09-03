@@ -1,205 +1,197 @@
 {
-	"name": "ds_coachfile",
+	"name": "ds_sql_coachusdb",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "lks_blob_coach",
+			"referenceName": "lkd_Sql_database",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
-		"type": "DelimitedText",
-		"typeProperties": {
-			"location": {
-				"type": "AzureBlobStorageLocation",
-				"fileName": "coach_us_retail_certona_v2.csv",
-				"folderPath": "Coach",
-				"container": "users"
-			},
-			"columnDelimiter": ",",
-			"escapeChar": "\\",
-			"firstRowAsHeader": true,
-			"quoteChar": "\""
-		},
+		"type": "AzureSqlTable",
 		"schema": [
 			{
 				"name": "Id",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "Title",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "Link",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
-				"name": "Image Link",
-				"type": "String"
+				"name": "ImageLink",
+				"type": "varchar"
 			},
 			{
 				"name": "Price",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "Availability",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "Description",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "Description_Long",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "Brand",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "Color",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "Refinement Color",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "Size",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "Dimension",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "Gender",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "Sale_Price",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "GTIN",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "MPN",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "Material",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "Refinement Material",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
-				"name": "Lining Material",
-				"type": "String"
+				"name": "LiningMaterial",
+				"type": "varchar"
 			},
 			{
-				"name": "Insole Material",
-				"type": "String"
+				"name": "InsoleMaterial",
+				"type": "varchar"
 			},
 			{
-				"name": "Outsole Material",
-				"type": "String"
+				"name": "OutsoleMaterial",
+				"type": "varchar"
 			},
 			{
-				"name": "Hardware Material",
-				"type": "String"
+				"name": "HardwareMaterial",
+				"type": "varchar"
 			},
 			{
-				"name": "Item Group Id",
-				"type": "String"
+				"name": "ItemGroupId",
+				"type": "varchar"
 			},
 			{
-				"name": "Additional Image Links",
-				"type": "String"
+				"name": "AdditionalImageLinks",
+				"type": "varchar"
 			},
 			{
 				"name": "Breadcrumbs",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "isOutlet",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "MerchandiseDivision",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "MerchandiseClass",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "OnlineFrom",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "DefaultVariant",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "AdditionalCategories",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "Silhouette",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "IsOnClearanceShop",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "IsOnSale",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "StyleGroup",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "ProductType",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "ProductSetItems",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "Rating",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "ReviewCount",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "IsMemberExclusive",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "BagSize",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "IsEmployeeSale",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "IsNewArrival",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
-				"name": "VariationId",
-				"type": "String"
+				"name": "VariationId ",
+				"type": "varchar"
 			}
-		]
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Data_Feed_CoachusC01_Items"
+		}
 	}
 }
