@@ -1,0 +1,9 @@
+{
+	"name": "SayaliDev",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "83cf438e-2a47-4331-8696-ba542f58f717",
+		"tenantId": "671ac24d-b915-4dee-92bd-a5d7bad4a48b"
+	}
+}
