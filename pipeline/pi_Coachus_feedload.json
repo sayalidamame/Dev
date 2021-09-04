@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data from coachus csv to datafeed",
+				"name": "Copy data fromcoachus csv to datafeed",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
