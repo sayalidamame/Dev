@@ -35,7 +35,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Copy data from coachus to datafeed",
+						"name": "Copy data fromcoachus csv to datafeed",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
@@ -1132,16 +1132,8 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "pi_Coachus_feedload",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
+				"runtimeState": "Stopped",
+				"pipelines": [],
 				"type": "ScheduleTrigger",
 				"typeProperties": {
 					"recurrence": {
@@ -1152,9 +1144,7 @@
 					}
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pi_Coachus_feedload')]"
-			]
+			"dependsOn": []
 		}
 	]
 }
